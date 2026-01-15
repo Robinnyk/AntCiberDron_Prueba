@@ -1,11 +1,18 @@
 package trApp.trConsoleApp;
 
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-import java.util.List;
-
+import trInfrastructure.Tools.CMDProgress;
 public class trSistemaRuso {
 
-    
+    public void iniciar() throws Exception {
+
+    System.out.println("Iniciando Sistema Ruso...");
+    CMDProgress.showSpinner();
+
+    System.out.println("\nCargando datos del sistema...");
+    CMDProgress.showBar("=");
+
+}
+
+
+
 }

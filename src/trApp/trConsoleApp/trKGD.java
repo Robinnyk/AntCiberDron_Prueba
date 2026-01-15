@@ -3,11 +3,14 @@ package trApp.trConsoleApp;
 public class trKGD {
     private String trCedula;
     private String trNombre;
-    
+  
     public trKGD(String trCedula, String trNombre) {
+
         this.trCedula = trCedula;
         this.trNombre = trNombre;
+      
     }
+
     public String getCedula() {
         return trCedula;
     }
@@ -20,6 +23,7 @@ public class trKGD {
     public void setNombre(String trNombre) {
         this.trNombre = trNombre;
     }
+
     
     public void show(){
         System.out.println("[+] Alumno:");
@@ -29,7 +33,8 @@ public class trKGD {
     @Override
     public String toString(){
         return getClass().getName()
-        + "\n cedula    : "+ getCedula()
-        + "\n nombre    : "+ getNombre();
+        + "\n Cédula    : "+ getCedula()
+        + "\n Nombre    : "+ getNombre();
     }
+    
 }

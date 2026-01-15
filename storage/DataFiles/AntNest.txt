@@ -1,0 +1,6 @@
+Larva
+Soldado
+Zangano
+Rastreadora
+Reina
+Obrera

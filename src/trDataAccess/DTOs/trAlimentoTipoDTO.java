@@ -2,38 +2,18 @@ package trDataAccess.DTOs;
 
 public class trAlimentoTipoDTO {
 
-    private Integer trIdCatalogo;
-    private Integer trIdCatalogoTipo;
-    private String  trNombre;
-    private String  trDescripcion;
-    private String  trEstado;
-    private String  trFechaCreacion;
-    private String  trFechaModificacion;
-
-    public trAlimentoTipoDTO() {}
-
-    public trAlimentoTipoDTO(Integer trIdCatalogo, Integer trIdCatalogoTipo, String trNombre, String trDescripcion,
-            String trEstado, String trFechaCreacion, String trFechaModificacion) {
-        this.trIdCatalogo = trIdCatalogo;
-        this.trIdCatalogoTipo = trIdCatalogoTipo;
-        this.trNombre = trNombre;
-        this.trDescripcion = trDescripcion;
-        this.trEstado = trEstado;
-        this.trFechaCreacion = trFechaCreacion;
-        this.trFechaModificacion = trFechaModificacion;
+    private Integer trIdAlimentoTipo;
+    private String  trNombre        ;
+    private String  trDescripcion   ;
+    private String  trEstado        ;
+    private String  trFechaCreacion ;
+    private String  trFechaModifica ;
+    
+    public Integer getTrIdAlimentoTipo() {
+        return trIdAlimentoTipo;
     }
-
-    public Integer getTrIdCatalogo() {
-        return trIdCatalogo;
-    }
-    public void setTrIdCatalogo(Integer trIdCatalogo) {
-        this.trIdCatalogo = trIdCatalogo;
-    }
-    public Integer getTrIdCatalogoTipo() {
-        return trIdCatalogoTipo;
-    }
-    public void setTrIdCatalogoTipo(Integer trIdCatalogoTipo) {
-        this.trIdCatalogoTipo = trIdCatalogoTipo;
+    public void setTrIdAlimentoTipo(Integer trIdAlimentoTipo) {
+        this.trIdAlimentoTipo = trIdAlimentoTipo;
     }
     public String getTrNombre() {
         return trNombre;
@@ -59,23 +39,37 @@ public class trAlimentoTipoDTO {
     public void setTrFechaCreacion(String trFechaCreacion) {
         this.trFechaCreacion = trFechaCreacion;
     }
-    public String getTrFechaModificacion() {
-        return trFechaModificacion;
+    public String getTrFechaModifica() {
+        return trFechaModifica;
     }
-    public void setTrFechaModificacion(String trFechaModificacion) {
-        this.trFechaModificacion = trFechaModificacion;
+    public void setTrFechaModifica(String trFechaModifica) {
+        this.trFechaModifica = trFechaModifica;
     }
-
+    public trAlimentoTipoDTO() {}
+    public trAlimentoTipoDTO(String nombre, String descripcion) {
+        trIdAlimentoTipo  = 0;
+        trNombre          = nombre;
+        trDescripcion     = descripcion;
+    }
+    public trAlimentoTipoDTO(Integer idAlimentoTipo, String nombre, String descripcion, String estado, String fechaCreacion,
+            String fechaModifica) {
+        trIdAlimentoTipo  = idAlimentoTipo;
+        trNombre          = nombre;
+        trDescripcion     = descripcion;
+        trEstado          = estado;
+        trFechaCreacion   = fechaCreacion;
+        trFechaModifica   = fechaModifica;
+    }
+    
     @Override
     public String toString() {
-        return  "\n" + getClass().getName() + 
-                "\n IdCatalogo:             " + getTrIdCatalogo() +
-                "\n IdCatalogoTipo:         " + getTrIdCatalogoTipo() +
-                "\n Nombre:                 " + getTrNombre() +
-                "\n Descripcion:            " + getTrDescripcion() +
-                "\n Estado:                 " + getTrEstado() +
-                "\n FechaCreacion:          " + getTrFechaCreacion() +
-                "\n FechaModificacion:'" + getTrFechaModificacion();
+        return getClass().getName()
+        + "\n trIdAlimentoTipo: "+ getTrIdAlimentoTipo  ()
+        + "\n trNombre        : "+ getTrNombre          ()
+        + "\n trDescripcion   : "+ getTrDescripcion     ()
+        + "\n trEstado        : "+ getTrEstado          ()
+        + "\n trFechaCreacion : "+ getTrFechaCreacion   ()
+        + "\n trFechaModifica : "+ getTrFechaModifica   ()
+        + "\n --------------------------- " ;
     }
-
 }

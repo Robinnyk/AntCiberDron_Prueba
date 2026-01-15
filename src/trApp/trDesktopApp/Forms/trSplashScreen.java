@@ -31,7 +31,7 @@ public class trSplashScreen {
         for (int i = 0; i <= 100; i++) {
             try {
                 Thread.sleep(50);
-            } catch (InterruptedException _) {
+            } catch (InterruptedException e) {
                 Thread.currentThread().interrupt(); 
                 break;
             }
