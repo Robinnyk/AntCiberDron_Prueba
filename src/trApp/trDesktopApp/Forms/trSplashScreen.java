@@ -9,6 +9,7 @@ import javax.swing.JProgressBar;
 import trInfrastructure.AppConfig;
 
 public class trSplashScreen {
+    
     private static JFrame       frmSplash   = new JFrame();
     public trSplashScreen() {
         initComponents();

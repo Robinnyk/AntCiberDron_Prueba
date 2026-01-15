@@ -1,73 +1,81 @@
 package trDataAccess.DTOs;
 
 public class trAlimentoTipoDTO {
-    private Integer trIdAlimentoTipo;
-    private String  trNombre        ;
-    private String  trDescripcion   ;
-    private String  trEstado        ;
-    private String  trFechaCreacion ;
-    private String  trFechaModifica ;
+
+    private Integer trIdCatalogo;
+    private Integer trIdCatalogoTipo;
+    private String  trNombre;
+    private String  trDescripcion;
+    private String  trEstado;
+    private String  trFechaCreacion;
+    private String  trFechaModificacion;
 
     public trAlimentoTipoDTO() {}
-    public trAlimentoTipoDTO(String nombre, String descripcion) {
-        trIdAlimentoTipo  = 0;
-        trNombre          = nombre;
-        trDescripcion     = descripcion;
+
+    public trAlimentoTipoDTO(Integer trIdCatalogo, Integer trIdCatalogoTipo, String trNombre, String trDescripcion,
+            String trEstado, String trFechaCreacion, String trFechaModificacion) {
+        this.trIdCatalogo = trIdCatalogo;
+        this.trIdCatalogoTipo = trIdCatalogoTipo;
+        this.trNombre = trNombre;
+        this.trDescripcion = trDescripcion;
+        this.trEstado = trEstado;
+        this.trFechaCreacion = trFechaCreacion;
+        this.trFechaModificacion = trFechaModificacion;
     }
-    public trAlimentoTipoDTO(Integer idAlimentoTipo, String nombre, String descripcion, String estado, String fechaCreacion,
-            String fechaModifica) {
-        trIdAlimentoTipo  = idAlimentoTipo;
-        trNombre          = nombre;
-        trDescripcion     = descripcion;
-        trEstado          = estado;
-        trFechaCreacion   = fechaCreacion;
-        trFechaModifica   = fechaModifica;
+
+    public Integer getTrIdCatalogo() {
+        return trIdCatalogo;
     }
-    public Integer getIdAlimentoTipo() {
-        return trIdAlimentoTipo;
+    public void setTrIdCatalogo(Integer trIdCatalogo) {
+        this.trIdCatalogo = trIdCatalogo;
     }
-    public void setIdAlimentoTipo(Integer idAlimentoTipo) {
-        trIdAlimentoTipo = idAlimentoTipo;
+    public Integer getTrIdCatalogoTipo() {
+        return trIdCatalogoTipo;
     }
-    public String getNombre() {
+    public void setTrIdCatalogoTipo(Integer trIdCatalogoTipo) {
+        this.trIdCatalogoTipo = trIdCatalogoTipo;
+    }
+    public String getTrNombre() {
         return trNombre;
     }
-    public void setNombre(String nombre) {
-        trNombre = nombre;
+    public void setTrNombre(String trNombre) {
+        this.trNombre = trNombre;
     }
-    public String getDescripcion() {
+    public String getTrDescripcion() {
         return trDescripcion;
     }
-    public void setDescripcion(String descripcion) {
-        trDescripcion = descripcion;
+    public void setTrDescripcion(String trDescripcion) {
+        this.trDescripcion = trDescripcion;
     }
-    public String getEstado() {
+    public String getTrEstado() {
         return trEstado;
     }
-    public void setEstado(String estado) {
-        trEstado = estado;
+    public void setTrEstado(String trEstado) {
+        this.trEstado = trEstado;
     }
-    public String getFechaCreacion() {
+    public String getTrFechaCreacion() {
         return trFechaCreacion;
     }
-    public void setFechaCreacion(String fechaCreacion) {
-        trFechaCreacion = fechaCreacion;
+    public void setTrFechaCreacion(String trFechaCreacion) {
+        this.trFechaCreacion = trFechaCreacion;
     }
-    public String getFechaModifica() {
-        return trFechaModifica;
+    public String getTrFechaModificacion() {
+        return trFechaModificacion;
     }
-    public void setFechaModifica(String fechaModifica) {
-        trFechaModifica = fechaModifica;
+    public void setTrFechaModificacion(String trFechaModificacion) {
+        this.trFechaModificacion = trFechaModificacion;
     }
+
     @Override
     public String toString() {
-        return getClass().getName()
-        + "\n IdAlimentoTipo: "+ getIdAlimentoTipo  ()
-        + "\n Nombre        : "+ getNombre          ()
-        + "\n Descripcion   : "+ getDescripcion     ()
-        + "\n Estado        : "+ getEstado          ()
-        + "\n FechaCreacion : "+ getFechaCreacion   ()
-        + "\n FechaModifica : "+ getFechaModifica   ()
-        + "\n --------------------------- " ;
+        return  "\n" + getClass().getName() + 
+                "\n IdCatalogo:             " + getTrIdCatalogo() +
+                "\n IdCatalogoTipo:         " + getTrIdCatalogoTipo() +
+                "\n Nombre:                 " + getTrNombre() +
+                "\n Descripcion:            " + getTrDescripcion() +
+                "\n Estado:                 " + getTrEstado() +
+                "\n FechaCreacion:          " + getTrFechaCreacion() +
+                "\n FechaModificacion:'" + getTrFechaModificacion();
     }
+
 }

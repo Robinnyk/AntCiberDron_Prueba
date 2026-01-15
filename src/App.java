@@ -1,13 +1,13 @@
 //  © 2K26 ❱──💀──❰ pat_mic ? code is life : life is code
 
-import trBusinessLogic.Entities.trHLarva;
+import trBusinessLogic.Entities.trHObreraBL;
 
 public class App {
     public static void main(String[] args)   {
 
         try {
 
-            trHLarva l = new trHLarva();
+            trHObreraBL l = new trHObreraBL();
             System.out.println( l.getLava(1).getNombre() );
 
             for ( var larva : l.getLarvas() ) {
