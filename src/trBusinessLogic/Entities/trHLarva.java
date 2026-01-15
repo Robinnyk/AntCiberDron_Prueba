@@ -17,8 +17,8 @@ public class trHLarva extends trHormiga {
     }
     
     public trHormiga comer(String comida) {
-        if (comida.equals("carne")) {
-            return new HSoldado();
+        if (comida.equals("planta")) {
+            return new trHSoldado();
         }
         return this;
     }
@@ -27,4 +27,6 @@ public class trHLarva extends trHormiga {
     public String toString() {
         return "HLarva {}";
     }
+
+    
 }

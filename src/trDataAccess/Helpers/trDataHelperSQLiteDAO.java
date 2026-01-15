@@ -16,9 +16,10 @@ import trInfrastructure.AppConfig;
 import trInfrastructure.AppException;
 
 public class trDataHelperSQLiteDAO <T> implements trIDAO<T> {
-    protected final Class<T> DTOClass;
-    protected final String   tableName;
-    protected final String   tablePK;
+    
+    protected final Class<T>DTOClass;
+    protected final String  tableName;
+    protected final String  tablePK;
 
     private static final String DBPath = AppConfig.DATABASE; 
     private static Connection conn = null;
@@ -159,7 +160,6 @@ public class trDataHelperSQLiteDAO <T> implements trIDAO<T> {
         }
     }
 
-
     @Override
     public T readBy(Integer id) throws AppException {
         String sql = String.format("SELECT * FROM %s WHERE %s = ? AND Estado = 'A'", tableName, tablePK);
@@ -219,6 +219,4 @@ public class trDataHelperSQLiteDAO <T> implements trIDAO<T> {
             throw new AppException(null, e, getClass(), "mapResultSetToEntity");
         }
     }
-
-   
 }

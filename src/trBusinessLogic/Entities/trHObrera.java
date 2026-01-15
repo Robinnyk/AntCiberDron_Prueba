@@ -1,10 +1,10 @@
 package trBusinessLogic.Entities;
 
-import DataAccess.DTOs.AlimentoExistenteDTO;
+import trDataAccess.DTOs.trAlimentoExistenteDTO;
 
 public class trHObrera extends trHormiga {
 
-    private boolean superReproductora = false;
+    private boolean superCortadora = false;
 
     public trHObrera() {
         super();
@@ -15,26 +15,28 @@ public class trHObrera extends trHormiga {
     }
 
     public boolean vivir() {
-        return data.getIdEstado() == 1; 
+        return data.getTrIdEstado() == 1; 
     }
 
     public void transformarse(trAlimentoExistenteDTO alimento) {
         
-        if (alimento.getIdEstadoAlimento() == 2) { 
-            data.setIdEstado(2); 
+        if (alimento.getTrIdEstadoAlimento() == 2) { 
+            data.setTrIdEstado(2); 
             return;
         }
 
-        if (alimento.getIdAlimentoTipo() == 4) {
-            superReproductora = true;
+        if (alimento.getTrIdAlimentoTipo() == 4) {
+            superCortadora = true;
         }
     }
 
     public void cambiarSexo(trAlimentoExistenteDTO alimento) {
      
-        if (alimento.getIdAlimentoTipo() == 4) {
-            data.setIdSexo(3); 
+        if (alimento.getTrIdAlimentoTipo() == 4) {
+            data.setTrIdSexo(3); 
         }
     }
+
+    
 
 }

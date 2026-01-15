@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import trDataAccess.DTOs.trHormigaDTO;
-import trDataAccess.DTOs.trfaVWHormigaDTO;
+import trDataAccess.DTOs.trFaVWHormigaDTO;
 import trDataAccess.Helpers.trDataHelperSQLiteDAO;
 import trInfrastructure.AppException;
 
@@ -17,9 +17,9 @@ public class trHormigaDAO extends trDataHelperSQLiteDAO<trHormigaDTO>{
         super(trHormigaDTO.class, "Hormiga", "IdHormiga");
     }
 
-    public List<trfaVWHormigaDTO> readAllvwHormiga() throws AppException {
-        trfaVWHormigaDTO dto;
-        List<trfaVWHormigaDTO> lst = new ArrayList<>();
+    public List<trFaVWHormigaDTO> readAllvwHormiga() throws AppException {
+        trFaVWHormigaDTO dto;
+        List<trFaVWHormigaDTO> lst = new ArrayList<>();
         String query = " SELECT IdHormiga"
                     +"  ,Tipo         "   
                     +"  ,Sexo         "
@@ -35,7 +35,7 @@ public class trHormigaDAO extends trDataHelperSQLiteDAO<trHormigaDTO>{
             Statement  stmt = conn.createStatement();   // CRUD : select * ...    
             ResultSet rs   = stmt.executeQuery(query);  // ejecutar la
             while (rs.next()) {
-                dto = new trfaVWHormigaDTO(rs.getString(1)          // IdHormiga
+                dto = new trFaVWHormigaDTO(rs.getString(1)          // IdHormiga
                                         ,rs.getString(2)        // Tipo            
                                         ,rs.getString(3)        // Sexo        
                                         ,rs.getString(4)        // EstadoHormiga 

@@ -7,9 +7,9 @@ import trDataAccess.DTOs.trAlimentoExistenteDTO;
 import trBusinessLogic.Interfaces.trIHormiga;
 import trBusinessLogic.Interfaces.trIIngestaNativa;
 
-public class trHormiga implements trIHormiga{
+public abstract class trHormiga implements trIHormiga{
 
-    protected FactoryBL<trHormigaDTO> factory = new FactoryBL<>(trHormigaDAO.class);
+    protected trFactoryBL<trHormigaDTO> factory = new trFactoryBL<>(trHormigaDAO.class);
     public trHormigaDTO data = new trHormigaDTO();
     protected boolean superCortadora = false;
 
@@ -17,11 +17,11 @@ public class trHormiga implements trIHormiga{
 
     @Override
     public Boolean trComer(trAlimentoExistenteDTO alimento) {
-        if (alimento.getIdEstadoAlimento() == 2) {
-            this.data.setIdEstado(2);
+        if (alimento.getTrIdEstadoAlimento() == 2) {
+            this.data.setTrIdEstado(2);
             return false;
         }
-        if (alimento.getIdAlimentoTipo() == 4) {
+        if (alimento.getTrIdAlimentoTipo() == 4) {
             this.superCortadora = true;
             cambiarSexo(alimento);
         }
@@ -34,13 +34,13 @@ public class trHormiga implements trIHormiga{
     }
 
     public void transformarse(trAlimentoExistenteDTO alimento) {
-        comer(alimento);
+        trComer(alimento);
     }
 
     protected void cambiarSexo(trAlimentoExistenteDTO alimento) {
         if (!superCortadora) return;
-        if (data.getIdSexo() == 1) data.setIdSexo(2);
-        else if (data.getIdSexo() == 2) data.setIdSexo(1);
+        if (data.getTrIdSexo() == 1) data.setTrIdSexo(2);
+        else if (data.getTrIdSexo() == 2) data.setTrIdSexo(1);
     }
 
     public void superReproductora() {
@@ -48,6 +48,6 @@ public class trHormiga implements trIHormiga{
     }
 
     public boolean vivir() {
-        return data.getIdEstado() != 2;
+        return data.getTrIdEstado() != 2;
     }
 }

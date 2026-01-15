@@ -1,10 +1,10 @@
 package trBusinessLogic.Interfaces;
 
-import trBusinessLogic.Entities.trHormigaTipoBL;
+import trDataAccess.DTOs.trAlimentoExistenteDTO;
 
 public interface trIHormiga {
 
     public Boolean trComer(trAlimentoExistenteDTO alimento);
-    public trHormigaTipoBL trComer(trIIngestaNativa ingesta);
-    
+    public String trComer(trIIngestaNativa ingesta);
+
 }

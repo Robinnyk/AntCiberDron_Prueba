@@ -3,9 +3,11 @@ package trDataAccess.DTOs;
 public class trAlimentoTipoDTO {
 
     private Integer trIdAlimentoTipo;
+
     private String  trNombre        ;
     private String  trDescripcion   ;
     private String  trEstado        ;
+
     private String  trFechaCreacion ;
     private String  trFechaModifica ;
     
@@ -45,7 +47,9 @@ public class trAlimentoTipoDTO {
     public void setTrFechaModifica(String trFechaModifica) {
         this.trFechaModifica = trFechaModifica;
     }
-    public trAlimentoTipoDTO() {}
+    public trAlimentoTipoDTO() {
+    }
+    
     public trAlimentoTipoDTO(String nombre, String descripcion) {
         trIdAlimentoTipo  = 0;
         trNombre          = nombre;

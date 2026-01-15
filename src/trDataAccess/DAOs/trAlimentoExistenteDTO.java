@@ -14,11 +14,11 @@ public class trAlimentoExistenteDTO {
     
     private String trGenoma;
 
-    public trAlimentoExistenteDTO(Integer trIdAlimentoExistente, Integer trIdAlimentoTipo, Integer trIdEstadoAlimento,
+    public trAlimentoExistenteDTO(Integer trIdAlimentoExistente, Integer idAlimentoTipo, Integer idEstadoAlimento,
             String trDescripcion, String trGenoma) {
         trIdAlimentoExistente = 0;
-        trIdAlimentoTipo      = trIdAlimentoTipo;
-        trIdEstadoAlimento    = trIdEstadoAlimento;
+        trIdAlimentoTipo      = idAlimentoTipo;
+        trIdEstadoAlimento    = idEstadoAlimento;
         trDescripcion         = "Alimento existente";
         trGenoma              = ""; 
     }

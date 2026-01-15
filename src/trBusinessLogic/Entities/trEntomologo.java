@@ -1,4 +1,4 @@
-package BusinessLogic.Entities;
+package trBusinessLogic.Entities;
 
 import java.util.List;
 import java.util.ArrayList;
@@ -10,31 +10,31 @@ import trDataAccess.DAOs.trAlimentoTipoDAO;
 import trDataAccess.DAOs.trEstadoAlimentoDAO;
 import trDataAccess.DTOs.trHormigaDTO;
 import trDataAccess.DTOs.trAlimentoExistenteDTO;
-import trDataAccess.DTOs.trAlimentoExistenteDTO;
+import trDataAccess.DTOs.trAlimentoTipoDTO;
 import trDataAccess.DTOs.trEstadoAlimentoDTO;
 import trInfrastructure.AppException;
 
 public class trEntomologo implements trIEntomologo {
 
-    private trHormigaDAO hormigaDAO;
-    private AlimentoExistenteDAO alimentoDAO;
-    private AlimentoTipoDAO alimentoTipoDAO;
-    private EstadoAlimentoDAO estadoAlimentoDAO;
+    private trHormigaDAO trHormigaDAO;
+    private trAlimentoExistenteDAO trAlimentoDAO;
+    private trAlimentoTipoDAO trAlimentoTipoDAO;
+    private trEstadoAlimentoDAO trEstadoAlimentoDAO;
 
-    public Entomologo() throws AppException {
-        this.hormigaDAO = new HormigaDAO();
-        this.alimentoDAO = new AlimentoExistenteDAO();
-        this.alimentoTipoDAO = new AlimentoTipoDAO();
-        this.estadoAlimentoDAO = new EstadoAlimentoDAO();
+    public trEntomologo() throws AppException {
+        this.trHormigaDAO = new trHormigaDAO();
+        this.trAlimentoDAO = new trAlimentoExistenteDAO();
+        this.trAlimentoTipoDAO = new trAlimentoTipoDAO();
+        this.trEstadoAlimentoDAO = new trEstadoAlimentoDAO();
     }
 
     @Override
-    public List<Hormiga> etlAntNest() {
-        List<Hormiga> hormigas = new ArrayList<>();
+    public List<trHormiga> etlAntNest() {
+        List<trHormiga> hormigas = new ArrayList<>();
         try {
-            List<HormigaDTO> dtos = hormigaDAO.readAll();
-            for (HormigaDTO dto : dtos) {
-                HReina h = new HReina();
+            List<trHormigaDTO> dtos = trHormigaDAO.readAll();
+            for (trHormigaDTO dto : dtos) {
+                trHObrera h = new trHObrera();
                 h.data = dto;
                 hormigas.add(h);
             }
@@ -45,9 +45,9 @@ public class trEntomologo implements trIEntomologo {
     }
 
     @Override
-    public List<AlimentoExistenteDTO> etlAntFood() {
+    public List<trAlimentoExistenteDTO> etlAntFood() {
         try {
-            return alimentoDAO.readAll();
+            return trAlimentoDAO.readAll();
         } catch (Exception e) {
             e.printStackTrace();
             return new ArrayList<>();
@@ -55,45 +55,45 @@ public class trEntomologo implements trIEntomologo {
     }
 
     @Override
-    public Hormiga alimentarAnt(Hormiga hormiga, AlimentoExistenteDTO alimento) {
-        if (hormiga instanceof HReina) {
-            HReina reina = (HReina) hormiga;
-            reina.transformarse(alimento);
-            reina.cambiarSexo(alimento);
+    public trHormiga alimentarAnt(trHormiga hormiga, trAlimentoExistenteDTO alimento) {
+        if (hormiga instanceof trHObrera) {
+            trHObrera obrera = (trHObrera) hormiga;
+            obrera.transformarse(alimento);
+            obrera.cambiarSexo(alimento);
         }
         try {
-            alimentoDAO.delete(alimento.getIdAlimentoExistente());
+            trAlimentoDAO.delete(alimento.getTrIdAlimentoExistente());
         } catch (Exception e) {
             e.printStackTrace();
         }
         return hormiga;
     }
 
-    public void guardarAlimento(AlimentoExistenteDTO alimento) {
+    public void guardarAlimento(trAlimentoExistenteDTO alimento) {
         try {
-            alimentoDAO.create(alimento);
+            trAlimentoDAO.create(alimento);
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    public void guardarHormiga(HormigaDTO hormiga) {
+    public void guardarHormiga(trHormigaDTO hormiga) {
         try {
-            hormigaDAO.create(hormiga);
+            trHormigaDAO.create(hormiga);
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    public List<AlimentoTipoDTO> getAlimentoTipos() throws AppException {
-        return alimentoTipoDAO.readAll();
+    public List<trAlimentoTipoDTO> getTrAlimentoTipos() throws AppException {
+        return trAlimentoTipoDAO.readAll();
     }
 
-    public List<EstadoAlimentoDTO> getEstadoAlimentos() throws AppException {
-        return estadoAlimentoDAO.readAll();
+    public List<trEstadoAlimentoDTO> getEstadoAlimentos() throws AppException {
+        return trEstadoAlimentoDAO.readAll();
     }
 
-    public String getNombreHormigaTipo(int id) {
+    public String getTrNombreHormigaTipo(int id) {
         switch (id) {
             case 1: return "Larva";
             case 2: return "Soldado";
@@ -104,7 +104,7 @@ public class trEntomologo implements trIEntomologo {
         }
     }
 
-    public String getNombreSexo(int id) {
+    public String getTrNombreSexo(int id) {
         switch (id) {
             case 1: return "Macho";
             case 2: return "Hembra";
@@ -114,7 +114,7 @@ public class trEntomologo implements trIEntomologo {
         }
     }
 
-    public String getNombreEstado(int id) {
+    public String getTrNombreEstado(int id) {
         switch (id) {
             case 1: return "VIVA";
             case 2: return "MUERTA";

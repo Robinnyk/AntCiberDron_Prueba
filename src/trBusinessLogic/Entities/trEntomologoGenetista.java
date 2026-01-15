@@ -1,6 +1,5 @@
 package trBusinessLogic.Entities;
 
-import trBusinessLogic.Entities.trGenoAlimento;
 import trBusinessLogic.Interfaces.trIIngestaNativa;
 
 public class trEntomologoGenetista implements trIIngestaNativa {

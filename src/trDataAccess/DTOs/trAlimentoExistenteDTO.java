@@ -1,81 +1,115 @@
 package trDataAccess.DTOs;
 
 public class trAlimentoExistenteDTO {
+    private Integer trIdAlimentoExistente;
+    private Integer trIdAlimentoTipo;
+    private Integer trIdEstadoAlimento;
 
-    private Integer trIdCatalogo;
-    private Integer trIdCatalogoTipo;
-    private String  trNombre;
     private String  trDescripcion;
     private String  trEstado;
     private String  trFechaCreacion;
-    private String  trFechaModificacion;
+    private String  trFechaModifica;
 
-    public trAlimentoExistenteDTO() {}
+    private String trGenoma;
 
-    public trAlimentoExistenteDTO(Integer trIdCatalogo, Integer trIdCatalogoTipo, String trNombre, String trDescripcion,
-            String trEstado, String trFechaCreacion, String trFechaModificacion) {
-        this.trIdCatalogo = trIdCatalogo;
-        this.trIdCatalogoTipo = trIdCatalogoTipo;
-        this.trNombre = trNombre;
-        this.trDescripcion = trDescripcion;
-        this.trEstado = trEstado;
-        this.trFechaCreacion = trFechaCreacion;
-        this.trFechaModificacion = trFechaModificacion;
+    public Integer getTrIdAlimentoExistente() {
+        return trIdAlimentoExistente;
     }
 
-    public Integer getTrIdCatalogo() {
-        return trIdCatalogo;
+    public void setTrIdAlimentoExistente(Integer trIdAlimentoExistente) {
+        this.trIdAlimentoExistente = trIdAlimentoExistente;
     }
-    public void setTrIdCatalogo(Integer trIdCatalogo) {
-        this.trIdCatalogo = trIdCatalogo;
+
+    public Integer getTrIdAlimentoTipo() {
+        return trIdAlimentoTipo;
     }
-    public Integer getTrIdCatalogoTipo() {
-        return trIdCatalogoTipo;
+
+    public void setTrIdAlimentoTipo(Integer trIdAlimentoTipo) {
+        this.trIdAlimentoTipo = trIdAlimentoTipo;
     }
-    public void setTrIdCatalogoTipo(Integer trIdCatalogoTipo) {
-        this.trIdCatalogoTipo = trIdCatalogoTipo;
+
+    public Integer getTrIdEstadoAlimento() {
+        return trIdEstadoAlimento;
     }
-    public String getTrNombre() {
-        return trNombre;
+
+    public void setTrIdEstadoAlimento(Integer trIdEstadoAlimento) {
+        this.trIdEstadoAlimento = trIdEstadoAlimento;
     }
-    public void setTrNombre(String trNombre) {
-        this.trNombre = trNombre;
-    }
+
     public String getTrDescripcion() {
         return trDescripcion;
     }
+
     public void setTrDescripcion(String trDescripcion) {
         this.trDescripcion = trDescripcion;
     }
+
     public String getTrEstado() {
         return trEstado;
     }
+
     public void setTrEstado(String trEstado) {
         this.trEstado = trEstado;
     }
+
     public String getTrFechaCreacion() {
         return trFechaCreacion;
     }
+
     public void setTrFechaCreacion(String trFechaCreacion) {
         this.trFechaCreacion = trFechaCreacion;
     }
-    public String getTrFechaModificacion() {
-        return trFechaModificacion;
+
+    public String getTrFechaModifica() {
+        return trFechaModifica;
     }
-    public void setTrFechaModificacion(String trFechaModificacion) {
-        this.trFechaModificacion = trFechaModificacion;
+
+    public void setTrFechaModifica(String trFechaModifica) {
+        this.trFechaModifica = trFechaModifica;
+    }
+
+    public String getTrGenoma() {
+        return trGenoma;
+    }
+
+    public void setTrGenoma(String trGenoma) {
+        this.trGenoma = trGenoma;
+    }
+
+    public trAlimentoExistenteDTO() {}
+
+    public trAlimentoExistenteDTO(Integer idAlimentoTipo, Integer idEstadoAlimento) {
+        trIdAlimentoExistente = 0;
+        trIdAlimentoTipo      = idAlimentoTipo;
+        trIdEstadoAlimento    = idEstadoAlimento;
+        trDescripcion         = "Alimento existente";
+        trGenoma              = ""; 
+    }
+
+    public trAlimentoExistenteDTO(Integer idAlimentoExistente, Integer idAlimentoTipo,
+                                Integer idEstadoAlimento, String descripcion,
+                                String estado, String fechaCreacion, String fechaModifica) {
+        trIdAlimentoExistente = idAlimentoExistente;
+        trIdAlimentoTipo      = idAlimentoTipo;
+        trIdEstadoAlimento    = idEstadoAlimento;
+        trDescripcion         = descripcion;
+        trEstado              = estado;
+        trFechaCreacion       = fechaCreacion;
+        trFechaModifica       = fechaModifica;
+        trGenoma              = ""; 
     }
 
     @Override
     public String toString() {
-        return  "\n" + getClass().getName() + 
-                "\n trIdCatalogo:             " + getTrIdCatalogo() +
-                "\n trIdCatalogoTipo:         " + getTrIdCatalogoTipo() +
-                "\n trNombre:                 " + getTrNombre() +
-                "\n trDescripcion:            " + getTrDescripcion() +
-                "\n trEstado:                 " + getTrEstado() +
-                "\n trFechaCreacion:          " + getTrFechaCreacion() +
-                "\n trFechaModificacion:'" + getTrFechaModificacion();
+        return getClass().getName()
+        + "\n IdAlimentoExistente: " + getTrIdAlimentoExistente()
+        + "\n IdAlimentoTipo     : " + getTrIdAlimentoTipo()
+        + "\n IdEstadoAlimento   : " + getTrIdEstadoAlimento()
+        + "\n Descripcion        : " + getTrDescripcion()
+        + "\n Estado             : " + getTrEstado()
+        + "\n Genoma             : " + getTrGenoma()
+        + "\n FechaCreacion      : " + getTrFechaCreacion()
+        + "\n FechaModifica      : " + getTrFechaModifica()
+        + "\n --------------------------- ";
     }
-
 }
