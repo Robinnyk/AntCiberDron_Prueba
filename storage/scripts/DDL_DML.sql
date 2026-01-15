@@ -1,118 +1,119 @@
 
 -- database: storage\Databases\antCiberDron.sqlite
 
-DROP TABLE IF EXISTS AntCiberDron;
-DROP TABLE IF EXISTS Hormiga;
-DROP TABLE IF EXISTS Sexo;
-DROP TABLE IF EXISTS Estado;
-DROP TABLE IF EXISTS HormigaTipo;
-DROP TABLE IF EXISTS AlimentoTipo; 
-DROP TABLE IF EXISTS EstadoAlimento;
-DROP TABLE IF EXISTS AlimentoExistente;
+DROP TABLE IF EXISTS trAntCiberDron;
+DROP TABLE IF EXISTS trHormiga;
+DROP TABLE IF EXISTS trSexo;
+DROP TABLE IF EXISTS trEstado;
+DROP TABLE IF EXISTS trHormigaTipo;
+DROP TABLE IF EXISTS trAlimentoTipo; 
+DROP TABLE IF EXISTS trEstadoAlimento;
+DROP TABLE IF EXISTS trAlimentoExistente;
 
-CREATE TABLE AlimentoTipo(
-    IdAlimentoTipo INTEGER PRIMARY KEY AUTOINCREMENT
-    ,Nombre         VARCHAR(15)  NOT NULL UNIQUE
-    ,Descripcion    VARCHAR(100) NULL
-    ,Estado         VARCHAR(1)  NOT NULL DEFAULT 'A'
-    ,FechaCreacion  DATETIME NOT NULL  DEFAULT (datetime('now','localtime'))
-    ,FechaModifica  DATETIME NOT NULL  DEFAULT (datetime('now','localtime'))
+CREATE TABLE trAlimentoTipo(
+    trIdAlimentoTipo INTEGER PRIMARY KEY AUTOINCREMENT
+    ,trNombre         VARCHAR(15)  NOT NULL UNIQUE
+    ,trDescripcion    VARCHAR(100) NULL
+    ,trEstado         VARCHAR(1)  NOT NULL DEFAULT 'A'
+    ,trFechaCreacion  DATETIME NOT NULL  DEFAULT (datetime('now','localtime'))
+    ,trFechaModifica  DATETIME NOT NULL  DEFAULT (datetime('now','localtime'))
 );
-CREATE TABLE HormigaTipo (
-    IdHormigaTipo  INTEGER PRIMARY KEY AUTOINCREMENT
-    ,Nombre         VARCHAR(15)  NOT NULL UNIQUE
-    ,Descripcion    VARCHAR(100) NULL
-    ,Estado         VARCHAR(1)  NOT NULL DEFAULT 'A'
-    ,FechaCreacion  DATETIME NOT NULL  DEFAULT (datetime('now','localtime'))
-    ,FechaModifica  DATETIME NOT NULL  DEFAULT (datetime('now','localtime'))
+CREATE TABLE trHormigaTipo (
+    trIdHormigaTipo  INTEGER PRIMARY KEY AUTOINCREMENT
+    ,trNombre         VARCHAR(15)  NOT NULL UNIQUE
+    ,trDescripcion    VARCHAR(100) NULL
+    ,trEstado         VARCHAR(1)  NOT NULL DEFAULT 'A'
+    ,trFechaCreacion  DATETIME NOT NULL  DEFAULT (datetime('now','localtime'))
+    ,trFechaModifica  DATETIME NOT NULL  DEFAULT (datetime('now','localtime'))
 );
-CREATE TABLE Estado (
-    IdEstado       INTEGER PRIMARY KEY AUTOINCREMENT
-    ,Nombre         VARCHAR(15)  NOT NULL UNIQUE
-    ,Descripcion    VARCHAR(100) NULL
-    ,Estado         VARCHAR(1)  NOT NULL DEFAULT 'A'
-    ,FechaCreacion  DATETIME NOT NULL  DEFAULT (datetime('now','localtime'))
-    ,FechaModifica  DATETIME NOT NULL  DEFAULT (datetime('now','localtime'))
+CREATE TABLE trEstado (
+    trIdEstado       INTEGER PRIMARY KEY AUTOINCREMENT
+    ,trNombre         VARCHAR(15)  NOT NULL UNIQUE
+    ,trDescripcion    VARCHAR(100) NULL
+    ,trEstado         VARCHAR(1)  NOT NULL DEFAULT 'A'
+    ,trFechaCreacion  DATETIME NOT NULL  DEFAULT (datetime('now','localtime'))
+    ,trFechaModifica  DATETIME NOT NULL  DEFAULT (datetime('now','localtime'))
 );
-CREATE TABLE Sexo (
-    IdSexo         INTEGER PRIMARY KEY AUTOINCREMENT
-    ,Nombre         VARCHAR(15)  NOT NULL UNIQUE
-    ,Descripcion    VARCHAR(100) NULL
-    ,Estado         VARCHAR(1)  NOT NULL DEFAULT 'A'
-    ,FechaCreacion  DATETIME NOT NULL  DEFAULT (datetime('now','localtime'))
-    ,FechaModifica  DATETIME NOT NULL  DEFAULT (datetime('now','localtime'))
+CREATE TABLE trSexo (
+    trIdSexo         INTEGER PRIMARY KEY AUTOINCREMENT
+    ,trNombre         VARCHAR(15)  NOT NULL UNIQUE
+    ,trDescripcion    VARCHAR(100) NULL
+    ,trEstado         VARCHAR(1)  NOT NULL DEFAULT 'A'
+    ,trFechaCreacion  DATETIME NOT NULL  DEFAULT (datetime('now','localtime'))
+    ,trFechaModifica  DATETIME NOT NULL  DEFAULT (datetime('now','localtime'))
 );
-CREATE TABLE Hormiga (
-    IdHormiga      INTEGER PRIMARY KEY AUTOINCREMENT
-    ,IdHormigaTipo  INTEGER NOT NULL REFERENCES HormigaTipo (IdHormigaTipo)
-    ,IdSexo         INTEGER NOT NULL REFERENCES Sexo        (IdSexo)
-    ,IdEstado       INTEGER NOT NULL REFERENCES Estado      (IdEstado)
-    ,Nombre         VARCHAR(20) NOT NULL  UNIQUE
-    ,Descripcion    VARCHAR(20) NULL
+CREATE TABLE trHormiga (
+    trIdHormiga      INTEGER PRIMARY KEY AUTOINCREMENT
+    ,trIdHormigaTipo  INTEGER NOT NULL REFERENCES HormigaTipo (IdHormigaTipo)
+    ,trIdSexo         INTEGER NOT NULL REFERENCES Sexo        (IdSexo)
+    ,trIdEstado       INTEGER NOT NULL REFERENCES Estado      (IdEstado)
+    ,trNombre         VARCHAR(20) NOT NULL  UNIQUE
+    ,trDescripcion    VARCHAR(20) NULL
 
-    ,Estado         VARCHAR(1)  NOT NULL DEFAULT 'A'
-    ,FechaCreacion  DATETIME NOT NULL  DEFAULT (datetime('now','localtime'))
-    ,FechaModifica  DATETIME NOT NULL  DEFAULT (datetime('now','localtime'))
+    ,trEstado         VARCHAR(1)  NOT NULL DEFAULT 'A'
+    ,trFechaCreacion  DATETIME NOT NULL  DEFAULT (datetime('now','localtime'))
+    ,trFechaModifica  DATETIME NOT NULL  DEFAULT (datetime('now','localtime'))
 );
 
-DELETE FROM Hormiga;
+DELETE FROM trHormiga;
 
-CREATE TABLE AntCiberDron (
-    IdAntCiberDron     INTEGER PRIMARY KEY AUTOINCREMENT
-    ,Serie              VARCHAR(10) NOT NULL  UNIQUE
-    ,Estado             VARCHAR(1)  NOT NULL DEFAULT 'A'
-    ,FechaCreacion      DATETIME NOT NULL  DEFAULT (datetime('now','localtime'))
-    ,FechaModifica      DATETIME NOT NULL  DEFAULT (datetime('now','localtime'))
+CREATE TABLE trAntCiberDron (
+    trIdAntCiberDron     INTEGER PRIMARY KEY AUTOINCREMENT
+    ,trSerie              VARCHAR(10) NOT NULL  UNIQUE
+    ,trEstado             VARCHAR(1)  NOT NULL DEFAULT 'A'
+    ,trFechaCreacion      DATETIME NOT NULL  DEFAULT (datetime('now','localtime'))
+    ,trFechaModifica      DATETIME NOT NULL  DEFAULT (datetime('now','localtime'))
 );
 
 -- Insert initial data into Sexo table
-INSERT INTO Sexo 
- (Nombre, Descripcion)  VALUES 
+INSERT INTO trSexo 
+ (trNombre, trDescripcion)  VALUES 
  ('Macho'  ,' masculino')
 ,('Hembra' ,' femenina') 
 ,('Hibrido',' Hibrido')
 ,('Asexual',' Asexual');
 
-INSERT INTO AlimentoTipo
- (Nombre, Descripcion)  VALUES
+INSERT INTO trAlimentoTipo
+ (trNombre, trDescripcion)  VALUES
  ('Carne'   ,'Azucar')
 ,('Hierba' ,'Proteina')
 ,('Mezcla'  ,'Lipidico')
 ,('Nectar','Vitaminico');
 
-INSERT INTO HormigaTipo
- (Nombre, Descripcion)  VALUES 
+INSERT INTO trHormigaTipo
+ (trNombre, trDescripcion)  VALUES 
  ('Larva'     ,' en etapa de larva')
 ,('Soldado'   ,' encargada de la defensa')
 ,('Rastreadora',' encargada de buscar alimento')
 ,('Reina'     ,' encargada de la reproducción')
-,('Zángano'   ,' macho para reproducción');
+,('Zángano'   ,' macho para reproducción')
+,('Obrera'    ,' encargada de construir')
 
-INSERT INTO Estado
- (Nombre, Descripcion)  VALUES 
+INSERT INTO trEstado
+ (trNombre, trDescripcion)  VALUES 
  ('Vive' ,' está viva'),
  ('Muere',' ha muerto'),
  ('Finge',' su muerte');
 
-INSERT INTO AntCiberDron
-(Serie)     VALUES 
+INSERT INTO trAntCiberDron
+(trSerie)     VALUES 
 ('S001'),
 ('S002'),
 ('S003'),
 ('S004');
     
-INSERT INTO Hormiga
-(IdHormigaTipo, IdSexo, IdEstado, Nombre, Descripcion) values 
+INSERT INTO trHormiga
+(trIdHormigaTipo, trIdSexo, trIdEstado, trNombre, trDescripcion) values 
 (1, 2, 1, 'Hormiga1', 'Primera hormiga'),
 (2, 1, 1, 'Hormiga2', 'Segunda hormiga'),
 (3, 2, 1, 'Hormiga3', 'Tercera hormiga'),
 (4, 1, 1, 'Hormiga4', 'Cuarta hormiga');
 
-select * from Sexo;
-select * from HormigaTipo;
-select * from Estado;
-select * from AlimentoTipo;
-SELECT * FROM Hormiga;
+select * from trSexo;
+select * from trHormigaTipo;
+select * from trEstado;
+select * from trAlimentoTipo;
+SELECT * FROM trHormiga;
 
 
 DROP VIEW IF EXISTS vwHormiga;
@@ -136,61 +137,61 @@ WHERE H.Estado = 'A';
 
 SELECT * FROM vwHormiga;
 
-SELECT IdHormiga
-,Tipo
-,Sexo
-,EstadoHormiga
-,Nombre
-,Descripcion
-,Estado
-,FechaCreacion
-,FechaModifica  
-FROM vwHormiga;
+SELECT trIdHormiga
+,trTipo
+,trSexo
+,trEstadoHormiga
+,trNombre
+,trDescripcion
+,trEstado
+,trFechaCreacion
+,trFechaModifica  
+FROM trvwHormiga;
 
 
-SELECT * FROM Hormiga;
+SELECT * FROM trHormiga;
 
 
 
-UPDATE Estado   SET Nombre = 'VIVA'
-WHERE IdEstado = 1;
+UPDATE trEstado   SET trNombre = 'VIVA'
+WHERE trIdEstado = 1;
 
-UPDATE Estado   SET Nombre = 'MUERTA'
-WHERE IdEstado = 2;
+UPDATE trEstado   SET trNombre = 'MUERTA'
+WHERE trIdEstado = 2;
 
-UPDATE Estado   SET Estado = 'X'
-WHERE IdEstado = 3;
+UPDATE trEstado   SET trEstado = 'X'
+WHERE trIdEstado = 3;
 
 select * from Estado;
 
-CREATE TABLE EstadoAlimento (
-    IdEstadoAlimento INTEGER PRIMARY KEY AUTOINCREMENT
-    ,Nombre           VARCHAR(15) NOT NULL UNIQUE
-    ,Descripcion      VARCHAR(100) NULL
-    ,Estado           VARCHAR(1)  NOT NULL DEFAULT 'A'
-    ,FechaCreacion    DATETIME NOT NULL DEFAULT (datetime('now','localtime'))
-    ,FechaModifica    DATETIME NOT NULL DEFAULT (datetime('now','localtime'))
+CREATE TABLE trEstadoAlimento (
+    trIdEstadoAlimento INTEGER PRIMARY KEY AUTOINCREMENT
+    ,trNombre           VARCHAR(15) NOT NULL UNIQUE
+    ,trDescripcion      VARCHAR(100) NULL
+    ,trEstado           VARCHAR(1)  NOT NULL DEFAULT 'A'
+    ,trFechaCreacion    DATETIME NOT NULL DEFAULT (datetime('now','localtime'))
+    ,trFechaModifica    DATETIME NOT NULL DEFAULT (datetime('now','localtime'))
 );
 
-INSERT INTO EstadoAlimento (Nombre, Descripcion)
+INSERT INTO trEstadoAlimento (trNombre, trDescripcion)
 VALUES
 ('SALUDABLE', 'Alimento en buen estado'),
 ('PODRIDO',   'Alimento descompuesto');
 
 
-CREATE TABLE AlimentoExistente (
-    IdAlimentoExistente INTEGER PRIMARY KEY AUTOINCREMENT,
-    IdAlimentoTipo     INTEGER NOT NULL,
-    IdEstadoAlimento   INTEGER NOT NULL,
-    Descripcion        VARCHAR(50) NOT NULL,
-    Genoma             VARCHAR(3) NULL,
-    Estado             VARCHAR(1)  NOT NULL DEFAULT 'A',
-    FechaCreacion      DATETIME    NOT NULL DEFAULT (datetime('now','localtime')),
-    FechaModifica      DATETIME    NOT NULL DEFAULT (datetime('now','localtime')),
-    FOREIGN KEY (IdAlimentoTipo)   REFERENCES AlimentoTipo   (IdAlimentoTipo),
-    FOREIGN KEY (IdEstadoAlimento) REFERENCES EstadoAlimento (IdEstadoAlimento)
+CREATE TABLE trAlimentoExistente (
+    trIdAlimentoExistente INTEGER PRIMARY KEY AUTOINCREMENT,
+    trIdAlimentoTipo     INTEGER NOT NULL,
+    trIdEstadoAlimento   INTEGER NOT NULL,
+    trDescripcion        VARCHAR(50) NOT NULL,
+    trGenoma             VARCHAR(3) NULL,
+    trEstado             VARCHAR(1)  NOT NULL DEFAULT 'A',
+    trFechaCreacion      DATETIME    NOT NULL DEFAULT (datetime('now','localtime')),
+    trFechaModifica      DATETIME    NOT NULL DEFAULT (datetime('now','localtime')),
+    FOREIGN KEY (trIdAlimentoTipo)   REFERENCES AlimentoTipo   (trIdAlimentoTipo),
+    FOREIGN KEY (trIdEstadoAlimento) REFERENCES EstadoAlimento (trIdEstadoAlimento)
 );
 
-DELETE FROM AlimentoExistente;
+DELETE FROM trAlimentoExistente;
 
 

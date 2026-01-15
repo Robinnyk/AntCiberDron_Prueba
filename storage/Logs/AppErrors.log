@@ -12,3 +12,5 @@
 ╰──── LOG  ❱❱ 2026-01-14 12:02:22 | trHormigaDAO.mapResultSetToEntity | IdHormiga
 ???? SHOW ?? Ups! Error inesperado. Por favor, contacte al administrador del sistema. 
 ????? LOG  ?? 2026-01-14 20:27:28 | trHormigaDAO.mapResultSetToEntity | IdHormiga
+???? SHOW ?? Ups! Error inesperado. Por favor, contacte al administrador del sistema. 
+????? LOG  ?? 2026-01-15 01:17:44 | trHormigaDAO.create | [SQLITE_ERROR] SQL error or missing database (table Hormiga has no column named trIdHormiga)

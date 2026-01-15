@@ -52,7 +52,7 @@ public class trDataHelperSQLiteDAO <T> implements trIDAO<T> {
         try {
             openConnection();
         } catch (SQLException e) {
-            throw new AppException(null, e, getClass(), "DataHelperSQLiteDAO");
+            throw new AppException(null, e, getClass(), "trDataHelperSQLiteDAO");
         }
         this.DTOClass  = dtoClass;
         this.tableName = tableName;
@@ -70,9 +70,9 @@ public class trDataHelperSQLiteDAO <T> implements trIDAO<T> {
             String name = field.getName();
             // Excluir PK y campos por defecto y auditoria
             if (!name.equalsIgnoreCase(tablePK)
-                && !name.equalsIgnoreCase("Estado")
-                && !name.equalsIgnoreCase("FechaCreacion")
-                && !name.equalsIgnoreCase("FechaModifica")) {
+                && !name.equalsIgnoreCase("trEstado")
+                && !name.equalsIgnoreCase("trFechaCreacion")
+                && !name.equalsIgnoreCase("trFechaModifica")) {
                 columns.append(name).append(",");
                 placeholders.append("?,");
             }
@@ -89,9 +89,9 @@ public class trDataHelperSQLiteDAO <T> implements trIDAO<T> {
             for (Field field : fields) {
                 String name = field.getName();
                 if (!name.equalsIgnoreCase(tablePK)
-                    && !name.equalsIgnoreCase("Estado")
-                    && !name.equalsIgnoreCase("FechaCreacion")
-                    && !name.equalsIgnoreCase("FechaModifica")) 
+                    && !name.equalsIgnoreCase("trEstado")
+                    && !name.equalsIgnoreCase("trFechaCreacion")
+                    && !name.equalsIgnoreCase("trFechaModifica")) 
                         stmt.setObject(index++, field.get(entity));
             }
             return (stmt.executeUpdate() > 0);
@@ -149,7 +149,7 @@ public class trDataHelperSQLiteDAO <T> implements trIDAO<T> {
 
     @Override
     public boolean delete(Integer id) throws AppException {
-        String sql = String.format("UPDATE %s SET Estado = ?, FechaModifica = ? WHERE %s = ?", tableName, tablePK);
+        String sql = String.format("UPDATE %s SET trEstado = ?, trFechaModifica = ? WHERE %s = ?", tableName, tablePK);
         try (PreparedStatement stmt = openConnection().prepareStatement(sql)) {
             stmt.setString(1, "X");
             stmt.setString(2, getDataTimeNow());
@@ -162,7 +162,7 @@ public class trDataHelperSQLiteDAO <T> implements trIDAO<T> {
 
     @Override
     public T readBy(Integer id) throws AppException {
-        String sql = String.format("SELECT * FROM %s WHERE %s = ? AND Estado = 'A'", tableName, tablePK);
+        String sql = String.format("SELECT * FROM %s WHERE %s = ? AND trEstado = 'A'", tableName, tablePK);
         try (PreparedStatement stmt = openConnection().prepareStatement(sql)) {
             stmt.setInt(1, id);
             try (ResultSet rs = stmt.executeQuery()) {
@@ -176,7 +176,7 @@ public class trDataHelperSQLiteDAO <T> implements trIDAO<T> {
     @Override
     public List<T> readAll() throws AppException {
         List<T> list = new ArrayList<>();
-        String sql = String.format("SELECT * FROM %s WHERE Estado = 'A'", tableName);
+        String sql = String.format("SELECT * FROM %s WHERE trEstado = 'A'", tableName);
         try (PreparedStatement stmt = openConnection().prepareStatement(sql);
              ResultSet rs = stmt.executeQuery()) {
             while (rs.next()) {
@@ -190,7 +190,7 @@ public class trDataHelperSQLiteDAO <T> implements trIDAO<T> {
 
     @Override
     public Integer getMaxReg() throws AppException {
-        String sql = String.format("SELECT COUNT(*) FROM %s WHERE Estado = 'A'", tableName);
+        String sql = String.format("SELECT COUNT(*) FROM %s WHERE trEstado = 'A'", tableName);
         try (PreparedStatement stmt = openConnection().prepareStatement(sql);
              ResultSet rs = stmt.executeQuery()) {
             return rs.next() ? rs.getInt(1) : 0;

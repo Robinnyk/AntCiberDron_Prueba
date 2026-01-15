@@ -10,9 +10,9 @@ import trDataAccess.DAOs.trAlimentoTipoDAO;
 import trDataAccess.DAOs.trEstadoAlimentoDAO;
 import trDataAccess.DTOs.trHormigaDTO;
 import trDataAccess.DTOs.trAlimentoExistenteDTO;
-import trDataAccess.DTOs.trAlimentoTipoDTO;
 import trDataAccess.DTOs.trEstadoAlimentoDTO;
 import trInfrastructure.AppException;
+
 
 public class trEntomologo implements trIEntomologo {
 
@@ -85,11 +85,11 @@ public class trEntomologo implements trIEntomologo {
         }
     }
 
-    public List<trAlimentoTipoDTO> getTrAlimentoTipos() throws AppException {
+    public List<trAlimentoExistenteDTO> getTrAlimentoTipos() throws AppException {
         return trAlimentoTipoDAO.readAll();
     }
 
-    public List<trEstadoAlimentoDTO> getEstadoAlimentos() throws AppException {
+    public List<trEstadoAlimentoDTO> getTrEstadoAlimentos() throws AppException {
         return trEstadoAlimentoDAO.readAll();
     }
 
