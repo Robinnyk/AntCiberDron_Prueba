@@ -102,14 +102,14 @@ public class trAlimentoExistenteDTO {
     @Override
     public String toString() {
         return getClass().getName()
-        + "\n IdAlimentoExistente: " + getTrIdAlimentoExistente()
-        + "\n IdAlimentoTipo     : " + getTrIdAlimentoTipo()
-        + "\n IdEstadoAlimento   : " + getTrIdEstadoAlimento()
-        + "\n Descripcion        : " + getTrDescripcion()
-        + "\n Estado             : " + getTrEstado()
-        + "\n Genoma             : " + getTrGenoma()
-        + "\n FechaCreacion      : " + getTrFechaCreacion()
-        + "\n FechaModifica      : " + getTrFechaModifica()
+        + "\n trIdAlimentoExistente: " + getTrIdAlimentoExistente()
+        + "\n trIdAlimentoTipo     : " + getTrIdAlimentoTipo()
+        + "\n trIdEstadoAlimento   : " + getTrIdEstadoAlimento()
+        + "\n trDescripcion        : " + getTrDescripcion()
+        + "\n trEstado             : " + getTrEstado()
+        + "\n trGenoma             : " + getTrGenoma()
+        + "\n trFechaCreacion      : " + getTrFechaCreacion()
+        + "\n trFechaModifica      : " + getTrFechaModifica()
         + "\n --------------------------- ";
     }
 }

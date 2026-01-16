@@ -100,6 +100,7 @@ public class trEntomologo implements trIEntomologo {
             case 3: return "Rastreadora";
             case 4: return "Reina";
             case 5: return "Zángano";
+            case 6: return "Obrera";
             default: return "Desconocido";
         }
     }

@@ -82,13 +82,13 @@ public class trSexoDTO {
     @Override
     public String toString() {
         return  "\n" + getClass().getName() + 
-                "\n IdCatalogo:             " + getTrIdCatalogo() +
-                "\n IdCatalogoTipo:         " + getTrIdCatalogoTipo() +
-                "\n Nombre:                 " + getTrNombre() +
-                "\n Descripcion:            " + getTrDescripcion() +
-                "\n Estado:                 " + getTrEstado() +
-                "\n FechaCreacion:          " + getTrFechaCreacion() +
-                "\n FechaModificacion:      " + getTrFechaModificacion();
+                "\n trIdCatalogo:             " + getTrIdCatalogo() +
+                "\n trIdCatalogoTipo:         " + getTrIdCatalogoTipo() +
+                "\n trNombre:                 " + getTrNombre() +
+                "\n trDescripcion:            " + getTrDescripcion() +
+                "\n trEstado:                 " + getTrEstado() +
+                "\n trFechaCreacion:          " + getTrFechaCreacion() +
+                "\n trFechaModificacion:      " + getTrFechaModificacion();
     }
 
 }

@@ -14,36 +14,36 @@ import trInfrastructure.AppException;
 
 public class trHormigaDAO extends trDataHelperSQLiteDAO<trHormigaDTO>{
     public trHormigaDAO() throws AppException {
-        super(trHormigaDTO.class, "Hormiga", "IdHormiga");
+        super(trHormigaDTO.class, "trHormiga", "trIdHormiga");
     }
 
     public List<trFaVWHormigaDTO> readAllvwHormiga() throws AppException {
         trFaVWHormigaDTO dto;
         List<trFaVWHormigaDTO> lst = new ArrayList<>();
-        String query = " SELECT IdHormiga"
-                    +"  ,Tipo         "   
-                    +"  ,Sexo         "
-                    +"  ,EstadoHormiga"   
-                    +"  ,Nombre       "
-                    +"  ,Descripcion  "
-                    +"  ,Estado       "
-                    +"  ,FechaCreacion"   
-                    +"  ,FechaModifica" 
+        String query = " SELECT trIdHormiga"
+                    +"  ,trTipo         "   
+                    +"  ,trSexo         "
+                    +"  ,trEstadoHormiga"   
+                    +"  ,trNombre       "
+                    +"  ,trDescripcion  "
+                    +"  ,trEstado       "
+                    +"  ,trFechaCreacion"   
+                    +"  ,trFechaModifica" 
                     +"  FROM vwHormiga";
         try {
             Connection conn = openConnection();         // conectar a DB     
             Statement  stmt = conn.createStatement();   // CRUD : select * ...    
             ResultSet rs   = stmt.executeQuery(query);  // ejecutar la
             while (rs.next()) {
-                dto = new trFaVWHormigaDTO(rs.getString(1)          // IdHormiga
-                                        ,rs.getString(2)        // Tipo            
-                                        ,rs.getString(3)        // Sexo        
-                                        ,rs.getString(4)        // EstadoHormiga 
-                                        ,rs.getString(5)        // Nombre 
-                                        ,rs.getString(6)        // Descripcion
-                                        ,rs.getString(7)        // Estado
-                                        ,rs.getString(8)        // FechaCreacion
-                                        ,rs.getString(9)        // FechaModifica
+                dto = new trFaVWHormigaDTO(rs.getString(1)      // trIdHormiga
+                                        ,rs.getString(2)        // trTipo            
+                                        ,rs.getString(3)        // trSexo        
+                                        ,rs.getString(4)        // trEstadoHormiga 
+                                        ,rs.getString(5)        // trNombre 
+                                        ,rs.getString(6)        // trDescripcion
+                                        ,rs.getString(7)        // trEstado
+                                        ,rs.getString(8)        // trFechaCreacion
+                                        ,rs.getString(9)        // trFechaModifica
                                     ); 
                 lst.add(dto);
             }

@@ -6,7 +6,7 @@ import trInfrastructure.AppException;
 
 public class trAntCiberDronDAO extends trDataHelperSQLiteDAO<trAntCiberDronDTO>{
     public trAntCiberDronDAO() throws AppException {
-        super(trAntCiberDronDTO.class, "AntCiberDron", "IdAntCiberDron");
+        super(trAntCiberDronDTO.class, "trAntCiberDron", "trIdAntCiberDron");
     }
 
 

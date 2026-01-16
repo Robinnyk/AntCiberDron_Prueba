@@ -7,7 +7,7 @@ import trInfrastructure.AppException;
 public class trAlimentoTipoDAO extends trDataHelperSQLiteDAO<trAlimentoExistenteDTO>{
 
     public trAlimentoTipoDAO() throws AppException {
-        super(trAlimentoExistenteDTO.class, "AlimentoTipo", "IdAlimentoTipo");
+        super(trAlimentoExistenteDTO.class, "trAlimentoTipo", "trIdAlimentoTipo");
     }
     
 }

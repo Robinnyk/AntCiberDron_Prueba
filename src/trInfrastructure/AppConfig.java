@@ -1,4 +1,3 @@
-//  © 2K26 ❱──💀──❰ pat_mic ? code is life : life is code
 package trInfrastructure;
 
 import java.net.URL;

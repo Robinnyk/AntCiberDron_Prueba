@@ -14,3 +14,33 @@
 ????? LOG  ?? 2026-01-14 20:27:28 | trHormigaDAO.mapResultSetToEntity | IdHormiga
 ???? SHOW ?? Ups! Error inesperado. Por favor, contacte al administrador del sistema. 
 ????? LOG  ?? 2026-01-15 01:17:44 | trHormigaDAO.create | [SQLITE_ERROR] SQL error or missing database (table Hormiga has no column named trIdHormiga)
+???? SHOW ?? Ups! Error inesperado. Por favor, contacte al administrador del sistema. 
+????? LOG  ?? 2026-01-15 21:18:39 | trHormigaDAO.create | [SQLITE_ERROR] SQL error or missing database (table Hormiga has no column named trIdHormiga)
+???? SHOW ?? Ups! Error inesperado. Por favor, contacte al administrador del sistema. 
+????? LOG  ?? 2026-01-15 21:18:45 | trAlimentoExistenteDAO.create | [SQLITE_ERROR] SQL error or missing database (no such table: AlimentoExistente)
+???? SHOW ?? Ups! Error inesperado. Por favor, contacte al administrador del sistema. 
+????? LOG  ?? 2026-01-15 21:59:37 | trHormigaDAO.create | [SQLITE_CONSTRAINT_UNIQUE] A UNIQUE constraint failed (UNIQUE constraint failed: trHormiga.trNombre)
+???? SHOW ?? Ups! Error inesperado. Por favor, contacte al administrador del sistema. 
+????? LOG  ?? 2026-01-15 22:01:52 | trHormigaDAO.create | [SQLITE_CONSTRAINT_UNIQUE] A UNIQUE constraint failed (UNIQUE constraint failed: trHormiga.trNombre)
+???? SHOW ?? Ups! Error inesperado. Por favor, contacte al administrador del sistema. 
+????? LOG  ?? 2026-01-15 22:02:00 | trAlimentoExistenteDAO.create | [SQLITE_ERROR] SQL error or missing database (no such table: trAlimentoExistente)
+???? SHOW ?? Ups! Error inesperado. Por favor, contacte al administrador del sistema. 
+????? LOG  ?? 2026-01-15 22:08:23 | trHormigaDAO.create | [SQLITE_CONSTRAINT_UNIQUE] A UNIQUE constraint failed (UNIQUE constraint failed: trHormiga.trNombre)
+???? SHOW ?? Ups! Error inesperado. Por favor, contacte al administrador del sistema. 
+????? LOG  ?? 2026-01-15 22:08:41 | trHormigaDAO.create | [SQLITE_CONSTRAINT_UNIQUE] A UNIQUE constraint failed (UNIQUE constraint failed: trHormiga.trNombre)
+???? SHOW ?? Ups! Error inesperado. Por favor, contacte al administrador del sistema. 
+????? LOG  ?? 2026-01-15 22:08:43 | trAlimentoExistenteDAO.create | [SQLITE_ERROR] SQL error or missing database (no such table: trAlimentoExistente)
+???? SHOW ?? Ups! Error inesperado. Por favor, contacte al administrador del sistema. 
+????? LOG  ?? 2026-01-15 22:16:06 | trHormigaDAO.create | [SQLITE_CONSTRAINT_UNIQUE] A UNIQUE constraint failed (UNIQUE constraint failed: trHormiga.trNombre)
+???? SHOW ?? Ups! Error inesperado. Por favor, contacte al administrador del sistema. 
+????? LOG  ?? 2026-01-15 22:16:14 | trAlimentoExistenteDAO.create | [SQLITE_ERROR] SQL error or missing database (no such table: trAlimentoExistente)
+???? SHOW ?? Ups! Error inesperado. Por favor, contacte al administrador del sistema. 
+????? LOG  ?? 2026-01-15 22:17:57 | trAlimentoExistenteDAO.create | [SQLITE_ERROR] SQL error or missing database (no such table: trAlimentoExistente)
+???? SHOW ?? Ups! Error inesperado. Por favor, contacte al administrador del sistema. 
+????? LOG  ?? 2026-01-15 22:25:11 | trHormigaDAO.create | [SQLITE_ERROR] SQL error or missing database (no such table: trHormiga)
+???? SHOW ?? Ups! Error inesperado. Por favor, contacte al administrador del sistema. 
+????? LOG  ?? 2026-01-15 22:25:13 | trHormigaDAO.create | [SQLITE_ERROR] SQL error or missing database (no such table: trHormiga)
+???? SHOW ?? Ups! Error inesperado. Por favor, contacte al administrador del sistema. 
+????? LOG  ?? 2026-01-15 22:25:15 | trAlimentoExistenteDAO.create | [SQLITE_ERROR] SQL error or missing database (no such table: trAlimentoExistente)
+???? SHOW ?? Ups! Error inesperado. Por favor, contacte al administrador del sistema. 
+????? LOG  ?? 2026-01-15 22:25:16 | trAlimentoExistenteDAO.create | [SQLITE_ERROR] SQL error or missing database (no such table: trAlimentoExistente)
