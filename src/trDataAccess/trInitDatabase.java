@@ -39,10 +39,10 @@ public class trInitDatabase {
                 );
             """);
 
-            System.out.println("✔ Base de datos inicializada correctamente");
+            System.out.println("Base de datos inicializada correctamente");
 
         } catch (Exception e) {
-            System.out.println("✖ Error inicializando la BD");
+            System.out.println("Error inicializando la BD");
             e.printStackTrace();
         }
     }
